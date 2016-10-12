@@ -1,5 +1,6 @@
-CREATE DATABASE IF NOT EXISTS samesame;
-USE samesame;
+
+CREATE DATABASE IF NOT EXISTS stromstad;
+USE stromstad;
 
 
 DROP TABLE IF EXISTS answers;

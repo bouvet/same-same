@@ -7,11 +7,7 @@
     "angular": "1.2.x",
     "angular-route": "1.2.x",
     "angular-mocks": "~1.2.x",
-    "angular-animate": "~1.2.x",
-    "angular-bootstrap": "0.11.0",
     "jquery": "1.10.2",
-    "bootstrap": "~3.1.1",
-    "PreloadJS": "0.4.1",
-    "gsap": "1.10.3"
+    "bootstrap": "~3.1.1"
   }
 }

@@ -16,7 +16,7 @@ var connection = mysql.createConnection( {
 	host: config.dbOptions.dburl,
     user: config.dbOptions.dbuser,
 	password: config.dbOptions.dbpassword,
-	database: "samesame"
+	database: "stromstad"
 });
 
 //connect to the db

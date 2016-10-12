@@ -11,7 +11,7 @@ angular.module("samesameApp.controllers", [])
 		$scope.limitAnswers = 10;
 		//the starting index of the view
 		$scope.startAnswers = 0;
-
+	
 
 		//update the index of viewed answers +10
 		$scope.tenNextAnswers = function() {
@@ -36,7 +36,7 @@ angular.module("samesameApp.controllers", [])
 		$scope.tenFirstAnswers = function() {
 			$scope.startAnswers = 0;
 		};
-
+		
 		//get all answers from the server,
 		$scope.getAnswers = function() {
 			Answers.getAll().success(function (data) {
@@ -49,7 +49,7 @@ angular.module("samesameApp.controllers", [])
 		$scope.getAnswers();
 
 
-
+		
 		//deletes all answers and gets all answers again
 		$scope.deleteAnswers = function() {
 			Answers.deleteAll().success(function () {
@@ -57,7 +57,7 @@ angular.module("samesameApp.controllers", [])
 			});
 		};
 
-
+		
 		//deletes the answer with the specified id and gets all answers again
 		$scope.deleteAnswer = function(id) {
 			Answers.delete(id).success(function() {
@@ -208,7 +208,7 @@ angular.module("samesameApp.controllers", [])
 
 
 	.controller("RegisterGenderCtrl", ["$scope", "$location", "TextStrings", "AnsweredQuestions", "Questions", "Answers", "RecentAnswer", "UserIDService", function($scope, $location, TextStrings, AnsweredQuestions, Questions, Answers, RecentAnswer, UserIDService) {
-
+	
 		$scope.registerAnswerHeader = TextStrings.registerAnswerHeader;
 
 
@@ -237,9 +237,9 @@ angular.module("samesameApp.controllers", [])
 			else if (response === 'b') {
 				gender = 'f';
 			}
-
+			
 			UserIDService.setGender(gender);
-
+		
 			//Creating JSON object used to send to db
 			var dataJSON = { "userid" : userid, "questionid" : questionid, "response" : response, "gender": gender  };
 
@@ -248,9 +248,9 @@ angular.module("samesameApp.controllers", [])
 				console.log("answer registered" + JSON.stringify(dataJSON));
 				RecentAnswer.setAnswer(dataJSON);
 
-				$location.path("/partial-register-answer");
+				$location.path("/partial-register-answer");				
 			});
-
+				
 		};
 	}])
 
@@ -262,22 +262,22 @@ angular.module("samesameApp.controllers", [])
 	//the controller used on the page where the user registers answers
 	.controller("RegisterAnswerCtrl", ["$scope", "$location", "Answers", "Questions", "RecentAnswer","AnsweredQuestions", "UserIDService","TextStrings", function($scope, $location, Answers, Questions, RecentAnswer, AnsweredQuestions, UserIDService, TextStrings) {
 
-
+		
 		$scope.registerAnswerHeader = TextStrings.registerAnswerHeader;
 
 
-
+		
 		//Generates random number within range to select first question
 		var nextQ = getRandomInt(1, Object.keys(Questions).length);
 
-
+		
 
 		//Setting variables used throughout questionnaire
 		var answeredQuestions = AnsweredQuestions.getAnsweredQuestions();
 		var userid = JSON.stringify(UserIDService.getUserID());
-
-
-
+		
+	
+		 
 		//Needed for retrieving images correctly at init stage
 		AnsweredQuestions.removeIndex(answeredQuestions,nextQ);
 		$scope.nextQ = nextQ;
@@ -291,7 +291,7 @@ angular.module("samesameApp.controllers", [])
 
 			var questionid = $scope.nextQ;
 			var gender = UserIDService.getGender();
-
+		
 			//Creating JSON object used to send to db
 			var dataJSON = { "userid" : userid, "questionid" : questionid, "response" : response, "gender": gender  };
 
@@ -303,9 +303,9 @@ angular.module("samesameApp.controllers", [])
 				//Updating with next image, iff there are more images.
 				if (!listEmpty) {
 					var nextQ = AnsweredQuestions.getNextQuestion(answeredQuestions);
-					AnsweredQuestions.removeIndex(answeredQuestions,nextQ);
-					$scope.nextQ = nextQ;
-					$location.path("/partial-register-answer");
+					AnsweredQuestions.removeIndex(answeredQuestions,nextQ);	
+					$scope.nextQ = nextQ; 
+					$location.path("/partial-register-answer");	
 				}
 				else {
 					$location.path("/partial-view-results");
@@ -324,7 +324,7 @@ angular.module("samesameApp.controllers", [])
 	//the controller used on the page where the user registers the contact info
 	.controller("RegisterParticipantCtrl", ["$scope", "$location", "Participants", "UserIDService", "Statistics", "TextStrings", function($scope, $location, Participants, UserIDService, Statistics, TextStrings) {
 
-
+		
 		$scope.participant1Text = TextStrings.registerParticipant1Text;
 		$scope.participant2Text = TextStrings.registerParticipant2Text;
 
@@ -332,8 +332,8 @@ angular.module("samesameApp.controllers", [])
 		$scope.participant = {};
 		//the initial field of duplicate contact info0
 		$scope.duplicateEmail = "";
-
-
+	
+	
 		//a setter for the duplicate email field
 		$scope.setDuplicateEmail = function() {
 			$scope.duplicateEmail = $scope.participant.email;
@@ -356,10 +356,10 @@ angular.module("samesameApp.controllers", [])
 			}
 
 			var userid = UserIDService.getUserID();
-
+		
 
 			//Creating JSON object used to send to db
-			var dataJSON = { "userid": userid, "name": $scope.participant.name, "email": $scope.participant.email, "prize":$scope.participant.prize, "bouvet": bouvet};
+			var dataJSON = { "userid": userid, "name": $scope.participant.name, "email": $scope.participant.email, "prize": "a", "bouvet": bouvet};
 
 
 			Participants.create(dataJSON)
@@ -375,13 +375,13 @@ angular.module("samesameApp.controllers", [])
 		};
 
 	}])
-
+	
 
 
 
 	// Inits a unique user id. Used for db interaction for a single user
-	.controller("InitUserCtrl", ["$scope", "$location", "UserIDService", function($scope, $location, UserIDService) {
-
+	.controller("InitUserCtrl", ["$scope", "$location", "UserIDService", function($scope, $location, UserIDService) {	
+		
 		var d = new Date();
 		var id = d.getTime();
 
@@ -398,10 +398,10 @@ angular.module("samesameApp.controllers", [])
 
 		//Retrieves data for the type parameter
 		var retrieveStatistics = function(type, cb) {
-			Statistics.resetStatistics();
+			Statistics.resetStatistics();		
 			//initial call to fetch answers
 			Statistics.retrieveStatistics(type).success(function(data) {
-				var statistics = data;
+				var statistics = data;		
 				// sets objectlist
 				Statistics.setStatistics(statistics,type);
 
@@ -442,7 +442,7 @@ angular.module("samesameApp.controllers", [])
 
 		//Administers freshness of typical person lists
 		var getNextListForTypePerson = function(cb) {
-
+	
 			retrieveAllStatistics(function(allData) {
 
 				var activeList = allData[currentList],
@@ -453,7 +453,7 @@ angular.module("samesameApp.controllers", [])
 				var pushed = true;
 
 				var i;
-				for (i = 0; i < activeList.length ; i++ ) {
+				for (i = 0; i < activeList.length ; i++ ) {				
 					if ((i+1) % lengthOfSublist === 0) {
 						subArray.push(activeList[i]);
 						arrayToReturn.push(subArray);
@@ -486,7 +486,7 @@ angular.module("samesameApp.controllers", [])
 
 		var getListname = function(index) {
 			if (index === 0) {
-				return "Karrieredagen 15 deltageren";
+				return "JavaZone deltageren";
 			}
 			else if (index === 1) {
 				return "Bouvetansatte";
@@ -497,12 +497,12 @@ angular.module("samesameApp.controllers", [])
 			else if (index === 3) {
 				return "kvinnen";
 			}
-		}
+		} 
 
-
+		
 		pairs = initList();
 
-
+		
 		$scope.allData = Statistics.getAllStats(); //allData used in partial-stat-table
 		$scope.counts = Statistics.getCounts(); //Used in view partial-stat-table to access number of answered questions for each type.
 
@@ -510,7 +510,7 @@ angular.module("samesameApp.controllers", [])
 
 		//Exposure
 		var currentCollectionId = 0, currentImageId = 0;
-		var currentList = 0;
+		var currentList = 2;
 
 		var activeObject;
 
@@ -520,7 +520,7 @@ angular.module("samesameApp.controllers", [])
 		}
 
 		$scope.getCurrentImage = function(suffix) {
-
+			
 			setCurrentImageObject();
 
 			//To initially set image while waiting for Angular
@@ -529,7 +529,7 @@ angular.module("samesameApp.controllers", [])
 			}
 
 			$scope.dataList = pairs[currentCollectionId];
-
+			
 			//Each of following scope variables, corresponds to each progress bar in partial-stat-carousel
 			$scope.allList = pairs[0][currentImageId];
 			$scope.bouvetList = pairs[1][currentImageId];
@@ -542,7 +542,7 @@ angular.module("samesameApp.controllers", [])
 
 
 		var getNextImageForCarousel = function(cb) {
-
+			
 			if(currentImageId === pairs[currentCollectionId].length - 1) { //if end of the current collection
 
 				var nextCollectionId;
@@ -559,12 +559,12 @@ angular.module("samesameApp.controllers", [])
 					pairs[nextCollectionId] = imagePairList;
 					cb();
 				});
-			}
+			} 
 			else {
 				currentImageId = currentImageId + 1;
 				cb();
 			}
-		}
+		}	
 
 
 
@@ -572,12 +572,12 @@ angular.module("samesameApp.controllers", [])
 		var count = SliderConstants.numberOfListsTypePerson;
 
 		var handleInterval = function() {
-
+			
 			if ($location.path() === "/partial-stat-typePerson") {
 				if (count === 0) {
 					count = 4;
 					$location.path("/partial-stat-carousel");
-				} else {
+				} else {	
 					getNextListForTypePerson(function() {
 						$interval(handleInterval, SliderConstants.getMillisForTypePerson,1);
 					});
@@ -603,10 +603,10 @@ angular.module("samesameApp.controllers", [])
 
 		//Retrieves data for the type parameter
 		var retrieveStatistics = function(type, cb) {
-			Statistics.resetStatistics();
+			Statistics.resetStatistics();		
 			//initial call to fetch answers
 			Statistics.retrieveStatistics(type).success(function(data) {
-				var statistics = data;
+				var statistics = data;		
 				// sets objectlist
 				Statistics.setStatistics(statistics,type);
 
@@ -623,7 +623,7 @@ angular.module("samesameApp.controllers", [])
 			var allDone = function(partial, index) {
 				count = count - 1;
 				data[index] = partial;
-
+			
 			}
 			retrieveStatistics(0, allDone);
 			retrieveStatistics(1, allDone);
@@ -647,7 +647,7 @@ angular.module("samesameApp.controllers", [])
 
 		//Exposure
 		var currentCollectionId = 0, currentImageId = 0;
-		var currentList = 0;
+		var currentList = 2;
 
 		var activeObject;
 
@@ -657,7 +657,7 @@ angular.module("samesameApp.controllers", [])
 		}
 
 		$scope.getCurrentImage = function(suffix) {
-
+			
 			setCurrentImageObject();
 
 			//To initially set image while waiting for Angular
@@ -666,7 +666,7 @@ angular.module("samesameApp.controllers", [])
 			}
 
 			$scope.dataList = pairs[currentCollectionId];
-
+			
 			//Each of following scope variables, corresponds to each progress bar in partial-stat-carousel
 			$scope.allList = pairs[0][currentImageId];
 			$scope.bouvetList = pairs[1][currentImageId];
@@ -682,8 +682,8 @@ angular.module("samesameApp.controllers", [])
 		retrieveAllStatistics();
 		pairs = initList();
 
-
-
+		
+		
 		$scope.allData = Statistics.getAllStats(); //allData used in partial-stat-table
 		$scope.counts = Statistics.getCounts(); //Used in view partial-stat-table to access number of answered questions for each type.
 
@@ -691,7 +691,7 @@ angular.module("samesameApp.controllers", [])
 
 
 		var getNextImageForCarousel = function(cb) {
-
+			
 			if(currentImageId === pairs[currentCollectionId].length - 1) { //if end of the current collection
 
 				var nextCollectionId;
@@ -708,12 +708,12 @@ angular.module("samesameApp.controllers", [])
 					pairs[nextCollectionId] = imagePairList;
 					cb();
 				});
-			}
+			} 
 			else {
 				currentImageId = currentImageId + 1;
 				cb();
 			}
-		}
+		}	
 
 
 
@@ -728,7 +728,7 @@ angular.module("samesameApp.controllers", [])
 						$interval(handleInterval, SliderConstants.getMillisForCarouselSlide, 1);
 					});
 				}
-			}
+			}		
 			count = count - 1;
 		};
 
@@ -741,7 +741,7 @@ angular.module("samesameApp.controllers", [])
 
 
 
-
+	
 	.controller("DisplayLogoCtrl", ["$scope", "$interval", "$location", "SliderConstants", function($scope, $interval, $location, SliderConstants) {
 
 
@@ -763,10 +763,10 @@ angular.module("samesameApp.controllers", [])
 
 		//Retrieves data for the type parameter specified
 		var retrieveStatistics = function(type, cb) {
-			Statistics.resetStatistics();
+			Statistics.resetStatistics();		
 			//initial call to fetch answers
 			Statistics.retrieveStatistics(type).success(function(data) {
-				var statistics = data;
+				var statistics = data;		
 				// sets objectlist
 				Statistics.setStatistics(statistics,type);
 
@@ -791,7 +791,7 @@ angular.module("samesameApp.controllers", [])
 		}
 
 
-		//Retrieves number of answered questions for each type.
+		//Retrieves number of answered questions for each type. 
 		var retrieveCounts = function() {
 			Statistics.resetCounts;
 			Statistics.retrieveCounts().success(function(data) {
@@ -803,11 +803,11 @@ angular.module("samesameApp.controllers", [])
 
 		retrieveAllStatistics();
 		retrieveCounts();
-
+		
 		$scope.allData = Statistics.getAllStats(); //allData used in partial-stat-table
 		$scope.counts = Statistics.getCounts(); //Used in view partial-stat-table to access number of answered questions for each type.
 
-
+		
 		}])
 
 
@@ -817,12 +817,12 @@ angular.module("samesameApp.controllers", [])
 
 	.controller("StatisticsCompareCtrl", ["$scope", "$interval", "Statistics", "UserIDService", function($scope, $interval, Statistics, UserIDService) {
 
-
+		
 		var retrieveStatistics = function(type, cb) {
-			Statistics.resetStatistics();
+			Statistics.resetStatistics();		
 			//initial call to fetch answers
 			Statistics.retrieveStatistics(type).success(function(data) {
-				var statistics = data;
+				var statistics = data;		
 				// sets objectlist
 				Statistics.setStatistics(statistics,type);
 
@@ -844,7 +844,7 @@ angular.module("samesameApp.controllers", [])
 
 
 		var getCurrentAnswers = function() {
-			Statistics.retrieveCurrentAnswers(UserIDService.getUserID()).success(function(data) {
+			Statistics.retrieveCurrentAnswers(UserIDService.getUserID()).success(function(data) {	
 			Statistics.setCurrentAnswers(data);
 			});
 		}
@@ -869,18 +869,18 @@ angular.module("samesameApp.controllers", [])
 					return '???';
 				}
 			}
-		};
-
+		};	
+		
 		var retrieveTypeData = function(type) {
-			Statistics.resetStatistics();
+			Statistics.resetStatistics();		
 			//initial call to fetch answers
 			Statistics.retrieveTypeData().success(function(data) {
-				var statistics = data;
+				var statistics = data;		
 				// sets objectlist
 				Statistics.setTypeData(statistics);
 
 				var comparisons = Statistics.compareCurrentWithType(Statistics.getTypeData(), $scope.currentAnswers);
-
+				
 				$scope.resultDispatcher._resultObject = Statistics.getBiggestDeviation(comparisons);
 			});
 		}
@@ -888,7 +888,7 @@ angular.module("samesameApp.controllers", [])
 		retrieveTypeData();
 	}])
 
-
+	
 
 
 
@@ -901,7 +901,7 @@ function isListEmpty(list) {
 		for (i = 0; i < list.length; i++) {
 			if (list[i] != null) {
 				return false;
-			}
+			}	
 		}
 		return true;
 	}

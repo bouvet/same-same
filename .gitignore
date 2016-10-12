@@ -1,8 +1,12 @@
+# Folders #
 logs/*
-!.gitkeep
 node_modules/
 external_libs/
+
+# Files #
+!.gitkeep
 tmp
+*.iml
 .DS_Store
 .idea
 app/config.local.js
