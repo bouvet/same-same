@@ -710,8 +710,12 @@ angular.module("samesameApp.controllers", [])
 					nextCollectionId = currentCollectionId + 1;
 				}
 
+				if(pairs[nextCollectionId].length === 0) {
+					nextCollectionId += nextCollectionId;
+				}
+
 				retrieveStatistics(nextCollectionId, function(imagePairList) {
-					currentImageId = 0;
+					currentImageId = 1;
 					currentCollectionId = nextCollectionId;
 					pairs[nextCollectionId] = imagePairList;
 					cb();

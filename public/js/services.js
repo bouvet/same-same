@@ -262,42 +262,6 @@ angular.module("samesameApp.services", [])
 						imageURL : "./images/16b.png"
 					}
 				]
-			},
-			question17: {
-				questionid: '17',
-				options : [
-					{
-						value : 'a',
-						imageURL : "./images/17a.png"
-					}, {
-						value : 'b',
-						imageURL : "./images/17b.png"
-					}
-				]
-			},
-			question18: {
-				questionid: '18',
-				options : [
-					{
-						value : 'a',
-						imageURL : "./images/18a.jpg"
-					}, {
-						value : 'b',
-						imageURL : "./images/18b.jpg"
-					}
-				]
-			},
-			question19: {
-				questionid: '19',
-				options : [
-					{
-						value : 'a',
-						imageURL : "./images/19a.jpg"
-					}, {
-						value : 'b',
-						imageURL : "./images/19b.jpg"
-					}
-				]
 			}
 		};
 	})
