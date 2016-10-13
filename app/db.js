@@ -16,7 +16,7 @@ var connection = mysql.createConnection( {
 	host: config.dbOptions.dburl,
     user: config.dbOptions.dbuser,
 	password: config.dbOptions.dbpassword,
-	database: "stromstad"
+	database: config.dbOptions.datebase
 });
 
 //connect to the db
@@ -106,8 +106,8 @@ function getParticipants(callback) {
 insert a new participant. Values is an array containing the values to be inserted
 */
 function insertParticipant(values, callback) {
-	query("insert into participants(email, userid, name, prize, bouvet)" + 
-		"values ('" + values.email + "', '" + values.userid + "', '" + values.name + "', '" + values.prize + "', '" + values.bouvet + "');", callback);
+	query("insert into participants(email, userid, name, prize, bouvet, sap_area)" +
+		"values ('" + values.email + "', '" + values.userid + "', '" + values.name + "', '" + values.prize + "', '" + values.bouvet + "', '" + values.sapArea + "');", callback);
 }
 
 //delete all participants

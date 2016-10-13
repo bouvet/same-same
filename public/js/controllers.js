@@ -327,6 +327,17 @@ angular.module("samesameApp.controllers", [])
 		
 		$scope.participant1Text = TextStrings.registerParticipant1Text;
 		$scope.participant2Text = TextStrings.registerParticipant2Text;
+		$scope.participant3Text = TextStrings.registerParticipant3Text;
+		$scope.sapRB1 = TextStrings.sapRB1;
+		$scope.sapRB2 = TextStrings.sapRB2;
+		$scope.sapRB3 = TextStrings.sapRB3;
+		$scope.sapRB4 = TextStrings.sapRB4;
+		$scope.sapRB5 = TextStrings.sapRB5;
+		$scope.sapRB6 = TextStrings.sapRB6;
+		$scope.sapRB7 = TextStrings.sapRB7;
+		$scope.sapRB8 = TextStrings.sapRB8;
+		$scope.sapRB9 = TextStrings.sapRB9;
+
 
 		//initial object of participant
 		$scope.participant = {};
@@ -359,7 +370,7 @@ angular.module("samesameApp.controllers", [])
 		
 
 			//Creating JSON object used to send to db
-			var dataJSON = { "userid": userid, "name": $scope.participant.name, "email": $scope.participant.email, "prize": "a", "bouvet": bouvet};
+			var dataJSON = { "userid": userid, "name": $scope.participant.name, "email": $scope.participant.email, "prize": "a", "bouvet": bouvet, "sapArea": $scope.participant.sapArea};
 
 
 			Participants.create(dataJSON)
@@ -409,7 +420,7 @@ angular.module("samesameApp.controllers", [])
 					cb(Statistics.getStatistics(type), type);
 				}
 			});
-		}
+		};
 
 
 		var retrieveAllStatistics = function(cb) {
@@ -421,12 +432,12 @@ angular.module("samesameApp.controllers", [])
 				if (count === 0) {
 					cb(data);
 				}
-			}
+			};
 			retrieveStatistics(0, allDone);
 			retrieveStatistics(1, allDone);
 			retrieveStatistics(2, allDone);
 			retrieveStatistics(3, allDone);
-		}
+		};
 
 		//Following variables used for stat-carousel
 		var initList = function() {
@@ -435,9 +446,9 @@ angular.module("samesameApp.controllers", [])
 			Statistics.getStatistics(1),
 			Statistics.getStatistics(2),
 			Statistics.getStatistics(3)
-			]
+			];
 			return pairs;
-		}
+		};
 
 
 		//Administers freshness of typical person lists
@@ -497,7 +508,7 @@ angular.module("samesameApp.controllers", [])
 			else if (index === 3) {
 				return "kvinnen";
 			}
-		} 
+		};
 
 		
 		pairs = initList();
@@ -517,7 +528,7 @@ angular.module("samesameApp.controllers", [])
 		var setCurrentImageObject = function() {
 			//setListName(currentCollectionId);
 			$scope.activeObject = pairs[currentCollectionId][currentImageId];
-		}
+		};
 
 		$scope.getCurrentImage = function(suffix) {
 			
@@ -537,7 +548,7 @@ angular.module("samesameApp.controllers", [])
 			$scope.femaleList = pairs[3][currentImageId];
 
 			return pairs[currentCollectionId][currentImageId].questionid + suffix + '.png';
-		}
+		};
 
 
 
@@ -564,7 +575,7 @@ angular.module("samesameApp.controllers", [])
 				currentImageId = currentImageId + 1;
 				cb();
 			}
-		}	
+		};
 
 
 
@@ -614,7 +625,7 @@ angular.module("samesameApp.controllers", [])
 					cb(Statistics.getStatistics(type), type);
 				}
 			});
-		}
+		};
 
 
 		var retrieveAllStatistics = function(cb) {
@@ -624,12 +635,12 @@ angular.module("samesameApp.controllers", [])
 				count = count - 1;
 				data[index] = partial;
 			
-			}
+			};
 			retrieveStatistics(0, allDone);
 			retrieveStatistics(1, allDone);
 			retrieveStatistics(2, allDone);
 			retrieveStatistics(3, allDone);
-		}
+		};
 
 		//Following variables used for stat-carousel
 		var initList = function() {
@@ -638,9 +649,9 @@ angular.module("samesameApp.controllers", [])
 			Statistics.getStatistics(1),
 			Statistics.getStatistics(2),
 			Statistics.getStatistics(3)
-			]
+			];
 			return pairs;
-		}
+		};
 
 
 
@@ -654,7 +665,7 @@ angular.module("samesameApp.controllers", [])
 		var setCurrentImageObject = function() {
 			//setListName(currentCollectionId);
 			$scope.activeObject = pairs[currentCollectionId][currentImageId];
-		}
+		};
 
 		$scope.getCurrentImage = function(suffix) {
 			
@@ -674,10 +685,7 @@ angular.module("samesameApp.controllers", [])
 			$scope.femaleList = pairs[3][currentImageId];
 
 			return pairs[currentCollectionId][currentImageId].questionid + suffix + '.png';
-		}
-
-
-
+		};
 
 		retrieveAllStatistics();
 		pairs = initList();
@@ -713,7 +721,7 @@ angular.module("samesameApp.controllers", [])
 				currentImageId = currentImageId + 1;
 				cb();
 			}
-		}	
+		};
 
 
 
@@ -747,7 +755,7 @@ angular.module("samesameApp.controllers", [])
 
 		var redirect = function() {
 			$location.path("/partial-stat-carousel");
-		}
+		};
 
 
 		$interval(redirect, SliderConstants.getMillisForDisplayLogo, 1);
@@ -774,7 +782,7 @@ angular.module("samesameApp.controllers", [])
 					cb(Statistics.getStatistics(type), type);
 				}
 			});
-		}
+		};
 
 
 		var retrieveAllStatistics = function(cb) {
@@ -783,12 +791,12 @@ angular.module("samesameApp.controllers", [])
 			var allDone = function(partial, index) {
 				count = count - 1;
 				data[index] = partial;
-			}
+			};
 			retrieveStatistics(0, allDone);
 			retrieveStatistics(1, allDone);
 			retrieveStatistics(2, allDone);
 			retrieveStatistics(3, allDone);
-		}
+		};
 
 
 		//Retrieves number of answered questions for each type. 
@@ -798,7 +806,7 @@ angular.module("samesameApp.controllers", [])
 				var statistics = data;
 				Statistics.setCounts(statistics);
 			});
-		}
+		};
 
 
 		retrieveAllStatistics();
@@ -833,21 +841,21 @@ angular.module("samesameApp.controllers", [])
 
 				Statistics.compareAnswers(Statistics.getStatistics(type), Statistics.getCurrentAnswers(UserIDService.getUserID()));
 			});
-		}
+		};
 
 		var retrieveAllStatistics = function(cb) {
 			retrieveStatistics(0);
 			retrieveStatistics(1);
 			retrieveStatistics(2);
 			retrieveStatistics(3);
-		}
+		};
 
 
 		var getCurrentAnswers = function() {
 			Statistics.retrieveCurrentAnswers(UserIDService.getUserID()).success(function(data) {	
 			Statistics.setCurrentAnswers(data);
 			});
-		}
+		};
 
 
 		getCurrentAnswers(UserIDService.getUserID);
@@ -883,10 +891,10 @@ angular.module("samesameApp.controllers", [])
 				
 				$scope.resultDispatcher._resultObject = Statistics.getBiggestDeviation(comparisons);
 			});
-		}
+		};
 
 		retrieveTypeData();
-	}])
+	}]);
 
 	
 

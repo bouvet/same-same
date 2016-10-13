@@ -45,25 +45,57 @@
 		class="help-block has-error-custom">
 			Kontaktinformasjonen må inneholde enten telefonnr eller epost
 		</p>
-		
 
 
-	
-		<!--div class="btn-group">
-			<label>
-				<input type="radio" value="a" ng-model="participant.prize" required/>
-		    	<img ng-src="./images/prize/1a.jpg" name="participantPrizeA">
-		  	</label>
+		<!-- Sap spørsmål -->
+		<div class="text-white text-smaller">
+			<p>{{participant3Text}}</p>
+		</div>
+		<div align="center" class="sapRadio">
+			<table>
+				<tr>
+					<td><input type="radio" value={{sapRB1}} ng-model="participant.sapArea" required/></td>
+					<td>{{sapRB1}}</td>
+				</tr>
+				<tr>
+					<td><input type="radio" value={{sapRB2}} ng-model="participant.sapArea" required/></td>
+					<td>{{sapRB2}}</td>
+				</tr>
+				<tr>
+					<td><input type="radio" value={{sapRB3}} ng-model="participant.sapArea" required/></td>
+					<td>{{sapRB3}}</td>
+				</tr>
+				<tr>
+					<td><input type="radio" value={{sapRB4}} ng-model="participant.sapArea" required/></td>
+					<td>{{sapRB4}}</td>
+				</tr>
+				<tr>
+					<td><input type="radio" value={{sapRB5}} ng-model="participant.sapArea" required/></td>
+					<td>{{sapRB5}}</td>
+				</tr>
+				<tr>
+					<td><input type="radio" value={{sapRB6}} ng-model="participant.sapArea" required/></td>
+					<td>{{sapRB6}}</td>
+				</tr>
+				<tr>
+					<td><input type="radio" value={{sapRB7}} ng-model="participant.sapArea" required/></td>
+					<td>{{sapRB7}}</td>
+				</tr>
+				<tr>
+					<td><input type="radio" value={{sapRB8}} ng-model="participant.sapArea" required/></td>
+					<td>{{sapRB8}}</td>
+				</tr>
+				<tr>
+					<td><input type="radio" value={{sapRB9}} ng-model="participant.sapArea" required/></td>
+					<td>{{sapRB9}}</td>
+				</tr>
+			</table>
+		</div>
 
-		  	<label>
-				<input type="radio" value="b" ng-model="participant.prize" required/>
-				<img ng-src="./images/prize/1b.jpg" name="participantPrizeB" >
-			</label>
-		</div-->
-		<img ng-src="./images/prize/airboard.jpg" style="width: 220px;">
+		<div class="priceImage">
+			<img ng-src="./images/prize/airboard.jpg" style="width: 220px;">
+		</div>
 
-  		<br><br><br>			
-		
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-8">
 				<button type="submit" name="submitButton" class="btn new-button" ng-disabled="

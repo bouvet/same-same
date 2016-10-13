@@ -12,6 +12,7 @@ CREATE TABLE participants (
 	prize varchar(1) NOT NULL,
 	winner tinyint(1) DEFAULT 0,
 	bouvet tinyint(1) DEFAULT 0,
+	sap_area varchar(100),
 	PRIMARY KEY (email)
 	);
 

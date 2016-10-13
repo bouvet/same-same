@@ -134,8 +134,9 @@ function insertParticipant(req, res) {
 			email: req.body.email, 
 			userid: req.body.userid, 
 			name: req.body.name, 
-			prize: req.body.prize, bouvet: 
-			req.body.bouvet
+			prize: req.body.prize,
+			bouvet: req.body.bouvet,
+			sapArea: req.body.sapArea
 		};
 
 	db.insertParticipant(values, function(err, rows) {

@@ -78,226 +78,225 @@ angular.module("samesameApp.services", [])
 					imageURL : "./images/1a.png"
 				}, {
 					value : 'b',
-					imageURL : "./images/1b.png",
+					imageURL : "./images/1b.png"
 				}
-				],
-			}
-			,
+				]
+			},
 			question2: {
 				questionid: '2',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/2a.png"
+					{
+						value : 'a',
+						imageURL : "./images/2a.png"
 
-				}, {
-					value : 'b',
-					imageURL : "./images/2a.png"
-				}
-				],
+					}, {
+						value : 'b',
+						imageURL : "./images/2a.png"
+					}
+				]
 			},
 			question3: {
 				questionid: '3',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/3a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/3b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/3a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/3b.png"
+					}
 				]
-			},	
+			},
 			question4: {
 				questionid: '4',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/4a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/4b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/4a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/4b.png"
+					}
 				]
 			},
 			question5: {
 				questionid: '5',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/5a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/5b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/5a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/5b.png"
+					}
 				]
 			},
 			question6: {
 				questionid: '6',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/6a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/6b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/6a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/6b.png"
+					}
 				]
 			},
 			question7: {
 				questionid: '7',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/7a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/7b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/7a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/7b.png"
+					}
 				]
 			},
 			question8: {
 				questionid: '8',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/8a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/8b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/8a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/8b.png"
+					}
 				]
 			},
 			question9: {
 				questionid: '9',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/9a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/9b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/9a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/9b.png"
+					}
 				]
 			},
 			question10: {
 				questionid: '10',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/10a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/10b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/10a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/10b.png"
+					}
 				]
 			},
 			question11: {
 				questionid: '11',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/11a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/11b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/11a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/11b.png"
+					}
 				]
 			},
 			question12: {
 				questionid: '12',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/12a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/12b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/12a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/12b.png"
+					}
 				]
 			},
 			question13: {
 				questionid: '13',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/13a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/13b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/13a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/13b.png"
+					}
 				]
 			},
 			question14: {
 				questionid: '14',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/14a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/14b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/14a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/14b.png"
+					}
 				]
 			},
 			question15: {
 				questionid: '15',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/15a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/15b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/15a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/15b.png"
+					}
 				]
 			},
 			question16: {
 				questionid: '16',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/16a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/16b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/16a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/16b.png"
+					}
 				]
 			},
 			question17: {
 				questionid: '17',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/17a.png"
-				}, {
-					value : 'b',
-					imageURL : "./images/17b.png"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/17a.png"
+					}, {
+						value : 'b',
+						imageURL : "./images/17b.png"
+					}
 				]
 			},
 			question18: {
 				questionid: '18',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/18a.jpg"
-				}, {
-					value : 'b',
-					imageURL : "./images/18b.jpg"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/18a.jpg"
+					}, {
+						value : 'b',
+						imageURL : "./images/18b.jpg"
+					}
 				]
 			},
 			question19: {
 				questionid: '19',
 				options : [
-				{
-					value : 'a',
-					imageURL : "./images/19a.jpg"
-				}, {
-					value : 'b',
-					imageURL : "./images/19b.jpg"
-				}
+					{
+						value : 'a',
+						imageURL : "./images/19a.jpg"
+					}, {
+						value : 'b',
+						imageURL : "./images/19b.jpg"
+					}
 				]
 			}
 		};
@@ -315,9 +314,9 @@ angular.module("samesameApp.services", [])
 					imageURL : "./images/prize/1a.jpg"
 				}, {
 					value : 'b',
-					imageURL : "./images/prize/1b.jpg",
+					imageURL : "./images/prize/1b.jpg"
 				}
-				],
+				]
 			}
 
 		};
@@ -382,8 +381,7 @@ angular.module("samesameApp.services", [])
 
 	//Used to propagate userid throughout application
 	.service("UserIDService", function() {
-		var userid,
-			usergender
+		var userid, usergender;
 
 		var setUserID = function(id) {
 			userid = id;
@@ -424,7 +422,7 @@ angular.module("samesameApp.services", [])
 		
 		var counts = [];
 
-		var statPercentage = []
+		var statPercentage = [];
 
 		var currentAnswers = [];
 
@@ -507,7 +505,7 @@ angular.module("samesameApp.services", [])
 	
 						mostFreq : currObject[i]["mostFreq"],
 						greatest : currObject[i]["greatest"]
-					}
+					};
 
 					if ( type === 0 ) {
 						statAverage.push(statObject);
@@ -561,7 +559,7 @@ angular.module("samesameApp.services", [])
 						bouvet : currObject[i][0]["bouvet"],
 						male : currObject[i][0]["male"],
 						female : currObject[i][0]["female"]
-					}			
+					};
 					counts.push(statObject);					
 				}
 			},
@@ -610,10 +608,10 @@ angular.module("samesameApp.services", [])
 
 				for (i = 0 ; i < currObject.length ; i++) {
 
-					statObject = {	
-						questionid : currObject[i]["questionid"],
-						response : currObject[i]["response"]
-					}			
+					statObject = {
+						questionid: currObject[i]["questionid"],
+						response: currObject[i]["response"]
+					};
 					currentAnswers.push(statObject);					
 				}
 			},
@@ -644,7 +642,7 @@ angular.module("samesameApp.services", [])
 						mostFreq : currObject[i]["mostFreq"],
 						a_ : currObject[i]["a_"],
 						b_ : currObject[i]["b_"]
-					}
+					};
 					typeData.push(statObject);
 				}
 			},
@@ -669,7 +667,7 @@ angular.module("samesameApp.services", [])
 						mostAnswered : sameAsType,
 						percentA : typeData[i].a_,
 						percentB : typeData[i].b_
-					}
+					};
 					comparisons.push(statObject);
 		
 				}
@@ -701,7 +699,7 @@ angular.module("samesameApp.services", [])
 					biggestPosDeviation = 0,
 					currentPosDeviation = -1;
 
-				var statObject = []
+				var statObject = [];
 
 				var i;
 				//Purpously omitting index=0, because statistics male/female is not interesting
@@ -787,7 +785,7 @@ angular.module("samesameApp.services", [])
 						response : response,
 						mostAnswered : mostAnswered,
 						percent : percentage
-					}
+					};
 				return statObject;
 			}
 
@@ -802,9 +800,20 @@ angular.module("samesameApp.services", [])
 	//Used to hold textfields throughout application
 	.value("TextStrings", {
 
-		registerAnswerHeader 			: "Er du sånn eller slik?",
+		registerAnswerHeader 		: "Er du sånn eller slik?",
 		registerParticipant1Text 	: "Bli med i trekkningen av et Airboard. Fortell oss hva du heter og hvilken e-postadresse vi skal bruke hvis du trekkes ut som VINNER! ",
-		registerParticipant2Text 	: "Ingen fare: Vi sletter både navn og e-post etter trekningen. Æresord og kors på halsen."
+		registerParticipant2Text 	: "Ingen fare: Vi sletter både navn og e-post etter trekningen. Æresord og kors på halsen.",
+		registerParticipant3Text 	: "Hvilket område innen SAP jobber du med?.",
+		sapRB1 : "Innovation",
+		sapRB2 : "CEC (Customer Engagement and Commerce)",
+		sapRB3 : "Logistics",
+		sapRB4 : "BI",
+		sapRB5 : "Finance",
+		sapRB6 : "HCM/HR",
+		sapRB7 : "IT/S/4HANA",
+		sapRB8 : "Technology",
+		sapRB9 : "Annet…"
+
 	})
 
 
@@ -815,4 +824,4 @@ angular.module("samesameApp.services", [])
 		getMillisForCarouselSlide 	: 6000,
 		getMillisForTypePerson 		: 6000,
 		getMillisForDisplayLogo		: 6000
-	})
+	});
