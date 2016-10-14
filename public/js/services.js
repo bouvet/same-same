@@ -771,7 +771,7 @@ angular.module("samesameApp.services", [])
 
 	.value("SliderConstants", {
 
-		numberOfImagesInCarousel 	: 19,
+		numberOfImagesInCarousel 	: 15,
 		numberOfListsTypePerson 	: 2,
 		getMillisForCarouselSlide 	: 6000,
 		getMillisForTypePerson 		: 6000,
