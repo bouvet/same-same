@@ -370,6 +370,10 @@ Styling in partial-stat-carousel.html
 }
 
 
+.typePersonTableMargin {
+	margin-left: 25%;
+}
+
 .typePerson img {
 	height:100px;
 	width:100px;

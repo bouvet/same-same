@@ -250,18 +250,6 @@ angular.module("samesameApp.services", [])
 						imageURL : "./images/15b.png"
 					}
 				]
-			},
-			question16: {
-				questionid: '16',
-				options : [
-					{
-						value : 'a',
-						imageURL : "./images/16a.png"
-					}, {
-						value : 'b',
-						imageURL : "./images/16b.png"
-					}
-				]
 			}
 		};
 	})
