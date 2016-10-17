@@ -45,4 +45,4 @@ commit that contains any special logic that is implemented due to a event or cou
 
 ###Adding new functionality due to a course/event
 When there is a order of any new course or event specific logic, you should always create a new branch from master. 
-The name of the branch should be on the format Year_Month_Course, example: 2016_October_SapCourse
+The name of the branch should be on the format Year/Month/Course, example: 2016/October/SapCourse
