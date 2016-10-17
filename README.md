@@ -38,9 +38,11 @@ A documentation on the concept, the use of the application, the intended users, 
 
 6. Access the application at <yourip>:<theportspecified> (e.g. localhost:3000).
 
-##The story
-Original repo: https://github.com/henloen/sommer-2014, owners Lars Nedberg and Henrik Loennechen.
-Project was then forked and modified: https://github.com/arhplanet/sommer-2014, owner [Arne-Richard Hofsøy](mailto:arhplanet@gmail.com)
-This version is a fork of the work made by Arne-Richard Hofsøy. Owner of this version: [Lars Nedberg](mailto:lars.nedberg@gmail.com).
+##Branching
+###Master
+The master branch should only get commits that adds common functionality or improvements. There should never be a 
+commit that contains any special logic that is implemented due to a event or course
 
-For more detailed instructions, please consult the documentation.
+###Adding new functionality due to a course/event
+When there is a order of any new course or event specific logic, you should always create a new branch from master. 
+The name of the branch should be on the format Year_Month_Course, example: 2016_October_SapCourse
