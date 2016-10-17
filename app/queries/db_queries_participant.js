@@ -5,8 +5,8 @@ function getParticipants(callback) {
 }
 
 function insertParticipant(values, callback) {
-    db.query("insert into participants(email, userid, name, prize, bouvet, sap_area)" +
-        "values ('" + values.email + "', '" + values.userid + "', '" + values.name + "', '" + values.prize + "', '" + values.bouvet + "', '" + values.sapArea + "');", callback);
+    db.query("insert into participants(email, userid, name, prize, bouvet)" +
+        "values ('" + values.email + "', '" + values.userid + "', '" + values.name + "', '" + values.prize + "', '" + values.bouvet + "');", callback);
 }
 
 function deleteParticipants(callback) {

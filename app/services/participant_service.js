@@ -23,8 +23,7 @@ function insertParticipant(req, res) {
         userid: req.body.userid,
         name: req.body.name,
         prize: req.body.prize,
-        bouvet: req.body.bouvet,
-        sapArea: req.body.sapArea
+        bouvet: req.body.bouvet
     };
 
     queries_participant.insertParticipant(values, function (err, rows) {
