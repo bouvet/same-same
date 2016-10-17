@@ -107,7 +107,7 @@ angular.module("samesameApp.services", [])
 					imageURL : "./images/3b.png"
 				}
 				]
-			},	
+			},
 			question4: {
 				questionid: '4',
 				options : [
@@ -561,7 +561,7 @@ angular.module("samesameApp.services", [])
 						bouvet : currObject[i][0]["bouvet"],
 						male : currObject[i][0]["male"],
 						female : currObject[i][0]["female"]
-					}			
+					}
 					counts.push(statObject);					
 				}
 			},
@@ -610,10 +610,10 @@ angular.module("samesameApp.services", [])
 
 				for (i = 0 ; i < currObject.length ; i++) {
 
-					statObject = {	
+					statObject = {
 						questionid : currObject[i]["questionid"],
 						response : currObject[i]["response"]
-					}			
+					}
 					currentAnswers.push(statObject);					
 				}
 			},
@@ -812,7 +812,7 @@ angular.module("samesameApp.services", [])
 
 		numberOfImagesInCarousel 	: 19,
 		numberOfListsTypePerson 	: 2,
-		getMillisForCarouselSlide 	: 6000,
-		getMillisForTypePerson 		: 6000,
-		getMillisForDisplayLogo		: 6000
-	})
+		getMillisForCarouselSlide 	: 1000,
+		getMillisForTypePerson 		: 1000,
+		getMillisForDisplayLogo		: 1000
+	});
