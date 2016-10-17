@@ -1,112 +1,113 @@
 /*jshint node:true*/
 "use strict";
 
-//Access the methods exported from user.js
-var user = require("./user");
-
-
+var app_service = require("./services/app_service");
+var answer_service = require("./services/answer_service");
+var participant_service = require("./services/participant_service");
+var statistics_service = require("./services/statistics_service");
 
 //Routing:
+module.exports = function (app) {
 
-module.exports = function(app) {
-
-//default route
-	app.route("/")
-		.get(user.index);
-
-
-	app.route("/slides")
-		.get(user.slides);
-
-/*
-route for accessing multiple answers or create a new answer
-supports GET, POST, DELETE
-*/
-	app.route("/answers")
-		//used to get all answers in json format
-		.get(user.getAllAnswers)
-		
-		//used to insert a new answer
-		.post(user.insertAnswer)
-		
-		//used to truncate the table containing the answers
-		.delete(user.deleteAllAnswers);
-
-/*
-route for accessing specific answers based on the id provided as parameter
-supports GET, PUT, DELETE
-*/
-	app.route("/answers/:id")
-		//used to get the answer with the specified id
-		.get(user.getSingleAnswer)
-		
-		//used to delete the answer with the specified id
-		.delete(user.deleteSingleAnswer);
+    /*====================================
+     *            App Service
+     *====================================*/
+    app.route("/")
+        .get(app_service.index);
 
 
-
-/*
-route for accessing multiple participants
-supports GET, POST, DELETE
-*/
-	app.route("/participants")
-		//used to get all participants in json format
-		.get(user.getParticipants)
-		
-		//used to insert a new participant
-		.post(user.insertParticipant)
-		
-		//used to truncate the table containing participants
-		.delete(user.deleteParticipants);
-
-/*
-route for creating a winner with the specified email/contact info as primary key
-actually changes the 'winner' field of the participant with that primary key from 0 to 1, but for the user it 'creates' a winner
-*/
-	app.route("/winners/:email")
-		.post(user.updateWinner);
-
-/*
-route for deleting all winners, sets the 'winner' field of all participants to 0, but for the user is 'deletes' all winners
-*/
-	app.route("/winners")
-		//used to reset all fields indicating winners
-		.delete(user.deleteWinners);
-
-	app.route("/exportAnswers")
-		.get(user.exportAnswers);
-
-	app.route("/exportParticipants")
-		.get(user.exportParticipants);
+    app.route("/slides")
+        .get(app_service.slides);
 
 
+    /*====================================
+     *          Answer Service
+     *====================================*/
+
+    /*
+     * Route for accessing multiple answers or create a new answer
+     * supports GET, POST, DELETE
+     */
+    app.route("/answers")
+    //Used to get all answers in json format
+        .get(answer_service.getAllAnswers)
+
+        //Used to insert a new answer
+        .post(answer_service.insertAnswer)
+
+        //Used to truncate the table containing the answers
+        .delete(answer_service.deleteAllAnswers);
+
+    /*
+     * Route for accessing specific answers based on the id provided as parameter
+     * supports GET, PUT, DELETE
+     */
+    app.route("/answers/:id")
+    //Used to get the answer with the specified id
+        .get(answer_service.getSingleAnswer)
+
+        //Used to delete the answer with the specified id
+        .delete(answer_service.deleteSingleAnswer);
+
+    app.route("/exportAnswers")
+        .get(answer_service.exportAnswers);
 
 
+    /*====================================
+     *        Participant Service
+     *====================================*/
 
-/*
-Routes for retrieving statistics
-*/
+    /*
+     * Route for accessing multiple participants
+     * supports GET, POST, DELETE
+     */
+    app.route("/participants")
+    //Used to get all participants in json format
+        .get(participant_service.getParticipants)
 
-	app.route("/statsAverage")
-		.get(user.getAverageStatistics);
+        //Used to insert a new participant
+        .post(participant_service.insertParticipant)
 
-	app.route("/statsBouvet")
-		.get(user.getBouvetStatistics);
+        //Used to truncate the table containing participants
+        .delete(participant_service.deleteParticipants);
 
-	app.route("/statsMale")
-		.get(user.getMaleStatistics);
+    /*
+     * Route for creating a winner with the specified email/contact info as primary key
+     * actually changes the 'winner' field of the participant with that primary key from 0 to 1, but for the user it 'creates' a winner
+     */
+    app.route("/winners/:email")
+        .post(participant_service.updateWinner);
 
-	app.route("/statsFemale")
-		.get(user.getFemaleStatistics);
+    //Route for deleting all winners, sets the 'winner' field of all participants to 0, but for the user is 'deletes' all winners
+    app.route("/winners")
+    //Used to reset all fields indicating winners
+        .delete(participant_service.deleteWinners);
 
-	app.route("/statsCount")
-		.get(user.getCounts);
+    app.route("/exportParticipants")
+        .get(participant_service.exportParticipants);
 
 
-	app.route("/currentAnswers/:id")
-		.get(user.getCurrentAnswers);
+    /*====================================
+     *        Statistics Service
+     *====================================*/
+    app.route("/statsAverage")
+        .get(statistics_service.getAverageStatistics);
 
-	app.route("/getTypeData")
-		.get(user.getTypeData);
+    app.route("/statsBouvet")
+        .get(statistics_service.getBouvetStatistics);
 
+    app.route("/statsMale")
+        .get(statistics_service.getMaleStatistics);
+
+    app.route("/statsFemale")
+        .get(statistics_service.getFemaleStatistics);
+
+    app.route("/statsCount")
+        .get(statistics_service.getCounts);
+
+    app.route("/currentAnswers/:id")
+        .get(statistics_service.getCurrentAnswers);
+
+    app.route("/getTypeData")
+        .get(statistics_service.getTypeData);
 };
