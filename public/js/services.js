@@ -812,7 +812,7 @@ angular.module("samesameApp.services", [])
 
 		numberOfImagesInCarousel 	: 19,
 		numberOfListsTypePerson 	: 2,
-		getMillisForCarouselSlide 	: 1000,
-		getMillisForTypePerson 		: 1000,
-		getMillisForDisplayLogo		: 1000
+		getMillisForCarouselSlide 	: 6000,
+		getMillisForTypePerson 		: 6000,
+		getMillisForDisplayLogo		: 6000
 	});
