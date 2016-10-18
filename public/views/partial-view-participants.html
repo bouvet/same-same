@@ -1,172 +1,181 @@
 <div class="container-fluid">
-	
-	<div class="row top-pad-smaller">
-		<!--a button that takes you back to the main menu -->
-		<div class="col-sm-2 col-sm-offset-1">
-			<a href="#/partial-index" name="menuButton" class="btn btn-def-bouvet">
+    <div class="row top-pad-smaller">
+        <!--a button that takes you back to the main menu -->
+        <div class="col-sm-2 col-sm-offset-1">
+            <a href="#/partial-index" name="menuButton" class="btn btn-def-bouvet">
 				<span class="glyphicon glyphicon-home">
 				</span>
-				Tilbake til meny
-			</a>
-		</div>
-	</div>
+                Tilbake til meny
+            </a>
+        </div>
+    </div>
 
-	<div class="row text-orange text-medium middle-pos top-pad-smallest">
-		Deltakere
-	</div>
-			
-	<div class="row text-white top-pad-smallest text-smaller bottom-pad-small">
-		<div class="col-sm-3 col-sm-offset-2">
-			Totalt antall deltakere: {{participants.length}}
-		</div>
-		<div class="col-sm-3 col-sm-offset-3">
-			Index: {{startParticipants + 1}} - {{startParticipants + 10}}
-		</div>
-	</div>
+    <div class="row text-orange text-medium middle-pos top-pad-smallest">
+        Deltakere
+    </div>
 
-	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1">
-			<table class="table table-hover middle-pos bg-white text-smallest">
-				<thead class="center-align">
-					<tr>
-						<th>Navn</th>
-						<th>UserID</th>
-						<th>Kontaktinfo</th>
-						<th>Premie</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="participant in participants | 
+    <div class="row text-white top-pad-smallest text-smaller bottom-pad-small">
+        <div class="col-sm-3 col-sm-offset-2">
+            Totalt antall deltakere: {{participants.length}}
+        </div>
+        <div class="col-sm-3 col-sm-offset-3">
+            Index: {{startParticipants + 1}} - {{startParticipants + 10}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <table class="table table-hover middle-pos bg-white text-smallest">
+                <thead class="center-align">
+                <tr>
+                    <th>Navn</th>
+                    <th>UserID</th>
+                    <th>Kontaktinfo</th>
+                    <th>Premie</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="participant in participants |
 					answersFromTo:startParticipants:startParticipants + limitParticipants">
-						<td>{{participant.name}}</td>
-						<td>{{participant.userid}}</td>
-						<td>{{participant.email}}</td>
-						<td>{{participant.prize}}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
+                    <td>{{participant.name}}</td>
+                    <td>{{participant.userid}}</td>
+                    <td>{{participant.email}}</td>
+                    <td>{{participant.prize}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-	<div class="row">
-		<div class="col-sm-5 col-sm-offset-1">
-		<!--a button that triggers a modal that wants you to confirm that you want to delete -->
-			<button class="btn btn-def-bouvet" name="deleteParticipants" data-toggle="modal" data-target="#confirmDeleteParticipantsModal" >
+    <div class="row">
+        <div class="col-sm-5 col-sm-offset-1">
+            <!--a button that triggers a modal that wants you to confirm that you want to delete -->
+            <button class="btn btn-def-bouvet" name="deleteParticipants" data-toggle="modal"
+                    data-target="#confirmDeleteParticipantsModal">
 				<span class="glyphicon glyphicon-trash">
 				</span>
-				Slett alle
-			</button>
-			
-			<a href="/exportParticipants" class="btn btn-def-bouvet" download>Eksporter</a>
-	
-			<button class="btn btn-def-bouvet" name="pickWinner" ng-click="pickWinner()">
+                Slett alle
+            </button>
+
+            <a href="/exportParticipants" class="btn btn-def-bouvet" download>Eksporter</a>
+
+            <button class="btn btn-def-bouvet" name="pickWinner" ng-click="pickWinner()">
 				<span class="glyphicon glyphicon-star-empty">
 				</span>
-				Trekk vinner
-			</button>
-		</div>
-	
-		<div class="col-sm-3 col-sm-offset-2">
-			<div class="row">
-				<div class="col-sm-12">
-					<button class="btn btn-def-bouvet" ng-click="tenFirstParticipants()" ng-disabled="startParticipants <= 0">
-						<span class="glyphicon glyphicon-chevron-left"></span>
-						<span class="glyphicon glyphicon-chevron-left"></span>
-					</button>
-	
-					<button class="btn btn-def-bouvet" ng-click="tenPrevParticipants()" ng-disabled="startParticipants <= 0">
-						<span class="glyphicon glyphicon-chevron-left"></span>
-					</button>
-	
-					<button class="btn btn-def-bouvet" ng-click="tenNextParticipants()" ng-disabled="startParticipants >= participants.length - 10">
-						<span class="glyphicon glyphicon-chevron-right"></span>
-					</button>
-	
-					<button class="btn btn-def-bouvet" ng-click="tenLastParticipants()" ng-disabled="startParticipants >= participants.length - 10">
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<span class="glyphicon glyphicon-chevron-right"></span>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+                Trekk vinner
+            </button>
+        </div>
 
-	<br><br>
+        <div class="col-sm-3 col-sm-offset-2">
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-def-bouvet" ng-click="tenFirstParticipants()"
+                            ng-disabled="startParticipants <= 0">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </button>
 
-	<div ng-show="winners.length > 0">
-		<div class="row text-orange text-medium middle-pos">
-			Vinnere
-		</div>
-	
-		<br>
+                    <button class="btn btn-def-bouvet" ng-click="tenPrevParticipants()"
+                            ng-disabled="startParticipants <= 0">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </button>
 
-		<div class="row">
-			<div class="col-sm-10 col-sm-offset-1">
-				<table class="table table-hover bg-white">
-					<thead class="center-align">
-						<tr>
-							<th class="container">Navn</th>
-							<th class="container">Kontaktinfo</th>
-							<th class="container">Premie</th>
-						</tr>
-					</thead>
-					<tbody class="center-align">
-						<tr ng-repeat="winner in winners">
-							<td>{{winner.name}}</td>
-							<td>{{winner.email}}</td>
-							<td>{{winner.prize}}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
+                    <button class="btn btn-def-bouvet" ng-click="tenNextParticipants()"
+                            ng-disabled="startParticipants >= participants.length - 10">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </button>
 
-		<div class="row">
-			<div class="col-sm-2 col-sm-offset-1">
-				<button class="btn btn-def-bouvet" name="deleteWinners" data-toggle="modal" data-target="#confirmDeleteWinnersModal">
+                    <button class="btn btn-def-bouvet" ng-click="tenLastParticipants()"
+                            ng-disabled="startParticipants >= participants.length - 10">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div ng-show="winners.length > 0">
+        <div class="row text-orange text-medium middle-pos">
+            Vinnere
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <table class="table table-hover bg-white">
+                    <thead class="center-align">
+                    <tr>
+                        <th class="container">Navn</th>
+                        <th class="container">Kontaktinfo</th>
+                        <th class="container">Premie</th>
+                    </tr>
+                    </thead>
+                    <tbody class="center-align">
+                    <tr ng-repeat="winner in winners">
+                        <td>{{winner.name}}</td>
+                        <td>{{winner.email}}</td>
+                        <td>{{winner.prize}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-1">
+                <button class="btn btn-def-bouvet" name="deleteWinners" data-toggle="modal"
+                        data-target="#confirmDeleteWinnersModal">
 					<span class="glyphicon glyphicon-trash">
 					</span>
-					Slett vinnere
-				</button>
-				
-			</div>
-		</div>
-	</div>
-	
+                    Slett vinnere
+                </button>
 
-		<!-- the modal that wants you to confirm that you want to delete all participants in the database -->
-		<div class="modal" id="confirmDeleteParticipantsModal" role="dialog" aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content ">
-					<div class ="modal-header modal-confirm-delete">
-						<h4 class="modal-title">Bekreft sletting</h4>
-					</div>
-					<div ng-class="modal-body">
-						Er du sikker på at du vil slette alle deltakerne i databasen?
-					</div>
-					<div class="modal-footer">
-						<button class="btn modal-confirm-delete" name="confirmDelete" ng-click="deleteParticipants()" data-dismiss="modal">Slett alle</button>
-						<button class="btn btn-primary" data-dismiss="modal">Avbryt</button>
-					</div>
-				</div>
-			</div>
-		</div>
+            </div>
+        </div>
+    </div>
 
-		<!-- the modal that wants you to confirm that you want to delete all winners in the database -->
-		<div class="modal" id="confirmDeleteWinnersModal" role="dialog" aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content ">
-					<div class ="modal-header modal-confirm-delete">
-						<h4 class="modal-title">Bekreft sletting</h4>
-					</div>
-					<div ng-class="modal-body">
-						Er du sikker på at du vil slette alle vinnere i databasen?
-					</div>
-					<div class="modal-footer">
-						<button class="btn modal-confirm-delete" name="confirmDelete" ng-click="deleteWinners()" data-dismiss="modal">Slett alle</button>
-						<button class="btn btn-primary" data-dismiss="modal">Avbryt</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+    <!-- the modal that wants you to confirm that you want to delete all participants in the database -->
+    <div class="modal" id="confirmDeleteParticipantsModal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content ">
+                <div class="modal-header modal-confirm-delete">
+                    <h4 class="modal-title">Bekreft sletting</h4>
+                </div>
+                <div ng-class="modal-body">
+                    Er du sikker på at du vil slette alle deltakerne i databasen?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn modal-confirm-delete" name="confirmDelete" ng-click="deleteParticipants()"
+                            data-dismiss="modal">Slett alle
+                    </button>
+                    <button class="btn btn-primary" data-dismiss="modal">Avbryt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- the modal that wants you to confirm that you want to delete all winners in the database -->
+    <div class="modal" id="confirmDeleteWinnersModal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content ">
+                <div class="modal-header modal-confirm-delete">
+                    <h4 class="modal-title">Bekreft sletting</h4>
+                </div>
+                <div ng-class="modal-body">
+                    Er du sikker på at du vil slette alle vinnere i databasen?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn modal-confirm-delete" name="confirmDelete" ng-click="deleteWinners()"
+                            data-dismiss="modal">Slett alle
+                    </button>
+                    <button class="btn btn-primary" data-dismiss="modal">Avbryt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
