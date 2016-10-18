@@ -11,7 +11,12 @@ var app = angular.module("samesameApp", [
 	"ngAnimate",
 	"samesameApp.controllers",
 	"samesameApp.directives",
-	"samesameApp.services",
+	"samesameApp.services.user",
+	"samesameApp.services.text",
+	"samesameApp.services.answer",
+	"samesameApp.services.participant",
+	"samesameApp.services.statistics",
+	"samesameApp.services.question",
 	"samesameApp.filters",
 	"ui.bootstrap"
 	]).
