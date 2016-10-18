@@ -15,7 +15,7 @@ if (Object.getOwnPropertyNames(dbOptions).length === 0) {
         dburl: 'localhost',
         dbuser: 'bouvet',
         dbpassword: 'bouvet321',
-        datebase: 'stromstad'
+        datebase: 'samesame'
     };
 }
 console.log(dbOptions);
