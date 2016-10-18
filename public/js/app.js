@@ -9,7 +9,9 @@ Defines which html file to return in 'templateUrl' and the associated controller
 var app = angular.module("samesameApp", [
 	"ngRoute",
 	"ngAnimate",
-	"samesameApp.controllers",
+	"samesameApp.controllers.answer",
+	"samesameApp.controllers.participant",
+	"samesameApp.controllers.statistics",
 	"samesameApp.directives",
 	"samesameApp.services.user",
 	"samesameApp.services.text",
