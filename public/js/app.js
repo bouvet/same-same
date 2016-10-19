@@ -26,7 +26,7 @@ var app = angular.module("samesameApp", [
 ]).config(["$routeProvider", function ($routeProvider) {
     $routeProvider.when("/partial-index",
         {
-            templateUrl: "views/partial-index.html", controller: "SlidesCtrl"
+            templateUrl: "views/partial-index.html"
         });
 
     $routeProvider.when("/partial-start",
@@ -100,72 +100,12 @@ var app = angular.module("samesameApp", [
         });
     $routeProvider.when("/partial-view-slideshow",
         {
-            templateUrl: "views/partial-view-slideshow.html", controller: "MainCtrl"
+            templateUrl: "views/partial-view-slideshow.html", controller: "SlidesCtrl"
         });
 
     $routeProvider.otherwise({redirectTo: "/partial-index"});
 
 }]);
-
-app.controller('MainCtrl', function ($rootScope, $scope, $timeout, $location, RunService, QueueService, SliderConstants) {
-    var slides = $rootScope.slides;
-    console.log("Slides");
-    console.log(slides);
-
-    function setCurrentSlideIndex(index) {
-        $scope.currentIndex = index;
-    }
-
-    function isCurrentSlideIndex(index) {
-        return $scope.currentIndex === index;
-    }
-
-    function nextSlide() {
-        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
-        $timeout(nextSlide, SliderConstants.getMillisForSlides);
-    }
-
-    function setCurrentAnimation(animation) {
-        $scope.currentAnimation = animation;
-    }
-
-    function isCurrentAnimation(animation) {
-        return $scope.currentAnimation === animation;
-    }
-
-    function loadSlides() {
-        QueueService.loadManifest(slides);
-    }
-
-    $scope.$on('queueProgress', function (event, queueProgress) {
-    });
-
-    $scope.$on('queueComplete', function (event, slides) {
-        $scope.$apply(function () {
-            $scope.slides = slides;
-            console.log($scope.slides);
-            $scope.loaded = true;
-
-            $timeout(nextSlide, SliderConstants.getMillisForSlides);
-        });
-    });
-
-    $scope.progress = 0;
-    $scope.loaded = false;
-    $scope.currentIndex = -1;
-    $scope.currentAnimation = 'fade-in-animation';
-
-    $scope.setCurrentSlideIndex = setCurrentSlideIndex;
-    $scope.isCurrentSlideIndex = isCurrentSlideIndex;
-    $scope.setCurrentAnimation = setCurrentAnimation;
-    $scope.isCurrentAnimation = isCurrentAnimation;
-
-    if (!$scope.slides) {
-        loadSlides();
-    }
-
-    nextSlide();
-});
 
 app.factory('RunService', function () {
     var run = 0;
@@ -197,52 +137,5 @@ app.factory('QueueService', function ($rootScope) {
 
     return {
         loadManifest: loadManifest
-    }
-});
-
-app.animation('.slide-left-animation', function ($window) {
-    return {
-        enter: function (element, done) {
-            TweenMax.fromTo(element, 1, {left: $window.innerWidth}, {left: 0, onComplete: done});
-        },
-
-        leave: function (element, done) {
-            TweenMax.to(element, 1, {left: -$window.innerWidth, onComplete: done});
-        }
-    };
-});
-
-app.animation('.slide-down-animation', function ($window) {
-    return {
-        enter: function (element, done) {
-            TweenMax.fromTo(element, 1, {top: -$window.innerHeight}, {top: 0, onComplete: done});
-        },
-
-        leave: function (element, done) {
-            TweenMax.to(element, 1, {top: $window.innerHeight, onComplete: done});
-        }
-    };
-});
-
-app.animation('.fade-in-animation', function ($window) {
-    return {
-        enter: function (element, done) {
-            TweenMax.fromTo(element, 1, {opacity: 0}, {opacity: 1, onComplete: done});
-        },
-
-        leave: function (element, done) {
-            TweenMax.to(element, 1, {opacity: 0, onComplete: done});
-        }
-    };
-});
-
-app.directive('bgImage', function ($window, $timeout) {
-    return function (scope, element, attrs) {
-        var resizeBG = function () {
-        };
-
-        element.bind('load', function () {
-            resizeBG();
-        });
     }
 });
