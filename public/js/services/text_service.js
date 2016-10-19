@@ -11,5 +11,6 @@ angular.module("samesameApp.services.text", [])
         numberOfListsTypePerson: 2,
         getMillisForCarouselSlide: 6000,
         getMillisForTypePerson: 6000,
+        getMillisForSlides: 6000,
         getMillisForDisplayLogo: 6000
     });

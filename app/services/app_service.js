@@ -18,7 +18,7 @@ function slides(req, res) {
         var value = slides[i];
         slidesArray.push({"id": value, "src": "./images/slides/" + value})
     }
-    console.log(slidesArray);
+
     res.send(slidesArray);
 }
 

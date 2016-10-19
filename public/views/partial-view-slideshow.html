@@ -1,8 +1,7 @@
 <head>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<img ng-show="loaded"
-     bg-image class="fullBg {{currentAnimation}}"
+<img bg-image class="fullBg {{currentAnimation}}"
      ng-repeat="slide in slides"
      ng-if="isCurrentSlideIndex($index)"
      ng-src="{{slide.src}}">
