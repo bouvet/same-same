@@ -18,11 +18,9 @@ A documentation on the concept, the use of the application, the intended users, 
 1. Clone this repo
 2. Download and install [node.js](https://nodejs.org/en/download/current/).
 3. Set up a working [mysql server](http://dev.mysql.com/downloads/mysql/). Create the two tables (Answers, Participants) needed, using the sql scripts in the sql folder.
-4. Configure your own config.local.js file to define the url you will access the mysql server on. The file should follow this example:
+4. Configure [config.js](./app/config.js) file to define the url you will access the mysql server on. The file should follow this example:
 
     ```javascript
-    /*jshint node: true*/
-    "use strict";
     var dbOptions = {
        dburl: 'yourDBurl',
        dbuser: 'yourDBuser',
@@ -37,6 +35,10 @@ A documentation on the concept, the use of the application, the intended users, 
 5. Run *npm start* from the root level of the project. This should install all further dependencies and fire up the application.
 
 6. Access the application at <yourip>:<theportspecified> (e.g. localhost:3000).
+
+##Questions
+All the questions in the application is confugured in the [question_service.js](./public/js/services/question_service.js) file.
+The question images can be found in the [question folder](./public/images/questions/).
 
 ##Branching
 ###Master

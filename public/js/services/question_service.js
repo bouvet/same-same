@@ -5,9 +5,10 @@ angular.module("samesameApp.services.question", [])
 
     .factory("Questions", function () {
         /*
-         The object that contains the questions.
-         To see how this is used, please check the html file where they are displayed, 'partial-register-answer.html'
-         The output field is the value displayed to the user, the 'value' field is the the value stored in the database
+         * These are the questions that are being used in the application. If you want to remove a question, just delete
+         * one object.
+         *
+         * NB Remember to empty the database when you are removing qestions
          */
         return {
             getAll: function () {

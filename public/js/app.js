@@ -81,7 +81,7 @@ var app = angular.module("samesameApp", [
 
     $routeProvider.when("/partial-stat-typePerson",
         {
-            templateUrl: "views/partial-stat-typePerson.html", controller: "StatisticsTypePersonCtrl",
+            templateUrl: "views/partial-stat-typePerson.html", controller: "StatisticsTypePersonCtrl"
         });
 
     $routeProvider.when("/partial-stat-carousel",
