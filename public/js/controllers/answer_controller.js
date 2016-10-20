@@ -88,7 +88,8 @@ angular.module("samesameApp.controllers.answer", [])
 
 
         //Maintains total number of questions
-        var numberOfQuestions = Object.keys(Questions).length;
+        $scope.questions = Questions.getAll().questions;
+        var numberOfQuestions = $scope.questions.length;
 
         //Setting variables used throughout questionnaire
         var questionid = 0;
@@ -96,12 +97,8 @@ angular.module("samesameApp.controllers.answer", [])
         var userid = JSON.stringify(UserIDService.getUserID());
         var answeredQuestions = AnsweredQuestions.initAnsweredQuestions(numberOfQuestions);
 
-
-        //Needed for retrieving images correctly at init stage
-        AnsweredQuestions.removeIndex(answeredQuestions, questionid);
         $scope.nextQ = questionid;
         $scope.answeredQuestions = answeredQuestions;
-
 
         $scope.nextQuestion = function (response, radio) {
 
@@ -132,14 +129,14 @@ angular.module("samesameApp.controllers.answer", [])
      * The controller used on the page where the user registers answers
      */
     .controller("RegisterAnswerCtrl", ["$scope", "$location", "Answers", "Questions", "RecentAnswer", "AnsweredQuestions", "UserIDService", "TextStrings", function ($scope, $location, Answers, Questions, RecentAnswer, AnsweredQuestions, UserIDService, TextStrings) {
-
-
         $scope.registerAnswerHeader = TextStrings.registerAnswerHeader;
-
+        $scope.questions = Questions.getAll().questions;
 
         //Generates random number within range to select first question
-        var nextQ = getRandomInt(1, Object.keys(Questions).length);
+        var nextQ = getRandomInt(0, $scope.questions.length);
 
+        $scope.imgA = $scope.questions[nextQ].imageURLA;
+        $scope.imgB = $scope.questions[nextQ].imageURLB;
 
         //Setting variables used throughout questionnaire
         var answeredQuestions = AnsweredQuestions.getAnsweredQuestions();
@@ -157,7 +154,7 @@ angular.module("samesameApp.controllers.answer", [])
             answeredQuestions = AnsweredQuestions.getAnsweredQuestions();
             var listEmpty = isListEmpty(answeredQuestions);
 
-            var questionid = $scope.nextQ;
+            var questionid = $scope.questions[$scope.nextQ].questionid;
             var gender = UserIDService.getGender();
 
             //Creating JSON object used to send to db
@@ -174,13 +171,15 @@ angular.module("samesameApp.controllers.answer", [])
                         AnsweredQuestions.removeIndex(answeredQuestions, nextQ);
                         $scope.nextQ = nextQ;
                         $location.path("/partial-register-answer");
+
+                        $scope.imgA = $scope.questions[nextQ].imageURLA;
+                        $scope.imgB = $scope.questions[nextQ].imageURLB;
+
                     }
                     else {
                         $location.path("/partial-view-results");
                     }
                 });
-
-            $scope.questions = Questions.questions;
         };
     }]);
 

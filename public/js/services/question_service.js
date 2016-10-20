@@ -10,235 +10,88 @@ angular.module("samesameApp.services.question", [])
          The output field is the value displayed to the user, the 'value' field is the the value stored in the database
          */
         return {
-            question1: {
-                questionid: '1',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/1a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/1b.png"
-                    }
-                ]
+            getAll: function () {
+                return {
+                    questions: [
+                        {
+                            questionid: '1',
+                            imageURLA: "./images/1a.png",
+                            imageURLB: "./images/1b.png"
+                        }, {
+                            questionid: '2',
+                            imageURLA: "./images/2a.png",
+                            imageURLB: "./images/2b.png"
+                        }, {
+                            questionid: '3',
+                            imageURLA: "./images/3a.png",
+                            imageURLB: "./images/3b.png"
+                        }, {
+                            questionid: '4',
+                            imageURLA: "./images/4a.png",
+                            imageURLB: "./images/4b.png"
+                        }, {
+                            questionid: '5',
+                            imageURLA: "./images/5a.png",
+                            imageURLB: "./images/5b.png"
+                        }, {
+                            questionid: '6',
+                            imageURLA: "./images/6a.png",
+                            imageURLB: "./images/6b.png"
+                        }, {
+                            questionid: '7',
+                            imageURLA: "./images/7a.png",
+                            imageURLB: "./images/7b.png"
+                        }, {
+                            questionid: '8',
+                            imageURLA: "./images/8a.png",
+                            imageURLB: "./images/8b.png"
+                        }, {
+                            questionid: '9',
+                            imageURLA: "./images/9a.png",
+                            imageURLB: "./images/9b.png"
+                        }, {
+                            questionid: '10',
+                            imageURLA: "./images/10a.png",
+                            imageURLB: "./images/10b.png"
+                        }, {
+                            questionid: '11',
+                            imageURLA: "./images/11a.png",
+                            imageURLB: "./images/11b.png"
+                        }, {
+                            questionid: '12',
+                            imageURLA: "./images/12a.png",
+                            imageURLB: "./images/12b.png"
+                        }, {
+                            questionid: '13',
+                            imageURLA: "./images/13a.png",
+                            imageURLB: "./images/13b.png"
+                        }, {
+                            questionid: '14',
+                            imageURLA: "./images/14a.png",
+                            imageURLB: "./images/14b.png"
+                        }, {
+                            questionid: '15',
+                            imageURLA: "./images/15a.png",
+                            imageURLB: "./images/15b.png"
+                        }, {
+                            questionid: '16',
+                            imageURLA: "./images/16a.png",
+                            imageURLB: "./images/16b.png"
+                        }, {
+                            questionid: '17',
+                            imageURLA: "./images/17a.png",
+                            imageURLB: "./images/17b.png"
+                        }, {
+                            questionid: '18',
+                            imageURLA: "./images/18a.png",
+                            imageURLB: "./images/18b.png"
+                        }, {
+                            questionid: '19',
+                            imageURLA: "./images/19a.png",
+                            imageURLB: "./images/19b.png"
+                        }
+                    ]
+                };
             }
-            ,
-            question2: {
-                questionid: '2',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/2a.png"
-
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/2a.png"
-                    }
-                ]
-            },
-            question3: {
-                questionid: '3',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/3a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/3b.png"
-                    }
-                ]
-            },
-            question4: {
-                questionid: '4',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/4a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/4b.png"
-                    }
-                ]
-            },
-            question5: {
-                questionid: '5',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/5a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/5b.png"
-                    }
-                ]
-            },
-            question6: {
-                questionid: '6',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/6a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/6b.png"
-                    }
-                ]
-            },
-            question7: {
-                questionid: '7',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/7a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/7b.png"
-                    }
-                ]
-            },
-            question8: {
-                questionid: '8',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/8a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/8b.png"
-                    }
-                ]
-            },
-            question9: {
-                questionid: '9',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/9a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/9b.png"
-                    }
-                ]
-            },
-            question10: {
-                questionid: '10',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/10a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/10b.png"
-                    }
-                ]
-            },
-            question11: {
-                questionid: '11',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/11a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/11b.png"
-                    }
-                ]
-            },
-            question12: {
-                questionid: '12',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/12a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/12b.png"
-                    }
-                ]
-            },
-            question13: {
-                questionid: '13',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/13a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/13b.png"
-                    }
-                ]
-            },
-            question14: {
-                questionid: '14',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/14a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/14b.png"
-                    }
-                ]
-            },
-            question15: {
-                questionid: '15',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/15a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/15b.png"
-                    }
-                ]
-            },
-            question16: {
-                questionid: '16',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/16a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/16b.png"
-                    }
-                ]
-            },
-            question17: {
-                questionid: '17',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/17a.png"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/17b.png"
-                    }
-                ]
-            },
-            question18: {
-                questionid: '18',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/18a.jpg"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/18b.jpg"
-                    }
-                ]
-            },
-            question19: {
-                questionid: '19',
-                options: [
-                    {
-                        value: 'a',
-                        imageURL: "./images/19a.jpg"
-                    }, {
-                        value: 'b',
-                        imageURL: "./images/19b.jpg"
-                    }
-                ]
-            }
-        };
+        }
     });

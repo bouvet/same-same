@@ -176,7 +176,7 @@ angular.module("samesameApp.controllers.statistics", [])
         handleInterval();
     }])
 
-    .controller("StatisticsCarouselCtrl", ["$scope", "$interval", "$location", "Statistics", "SliderConstants", function ($scope, $interval, $location, Statistics, SliderConstants) {
+    .controller("StatisticsCarouselCtrl", ["$scope", "$interval", "$location", "Statistics", "SliderConstants", "Questions", function ($scope, $interval, $location, Statistics, SliderConstants, Questions) {
 
         var pairs = [];
 
@@ -280,7 +280,7 @@ angular.module("samesameApp.controllers.statistics", [])
             }
         };
 
-        var count = SliderConstants.numberOfImagesInCarousel;
+        var count = Questions.getAll().questions.length;
         var handleInterval = function () {
             if ($location.path() === "/partial-stat-carousel") {
                 if (count === 0) {

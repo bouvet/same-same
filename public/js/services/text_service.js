@@ -7,7 +7,6 @@ angular.module("samesameApp.services.text", [])
     })
 
     .value("SliderConstants", {
-        numberOfImagesInCarousel: 19,
         numberOfListsTypePerson: 2,
         getMillisForCarouselSlide: 6000,
         getMillisForTypePerson: 6000,
